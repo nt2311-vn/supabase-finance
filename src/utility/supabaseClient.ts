@@ -1,10 +1,7 @@
 import { createClient } from "@refinedev/supabase";
-import { configDotenv } from "dotenv";
 
-configDotenv({ path: "../.env.local" });
-
-const supabaseURL = process.env.SUPABASE_URL || "";
-const supabaseKey = process.env.SUPABASE_KEY || "";
+const supabaseURL = import.meta.env.VITE_SUPABASE_URL || "";
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY || "";
 
 export const supabaseClient = createClient(supabaseURL, supabaseKey, {
   db: {
